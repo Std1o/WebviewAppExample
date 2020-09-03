@@ -46,6 +46,9 @@ public class WebviewActivity extends AppCompatActivity {
 
         CookieManager.getInstance().setAcceptCookie(true);
         mWebView = findViewById(R.id.maim_web);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            CookieManager.getInstance().setAcceptThirdPartyCookies(mWebView, true);
+        }
         mWebView.setWebViewClient(new MyWebViewClient(WebviewActivity.this));
         mWebView.setWebChromeClient(new CustomWebChromeClient(WebviewActivity.this));
 
